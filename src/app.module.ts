@@ -5,9 +5,9 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 import { EventModule } from './apis/event/event.module';
 import { UserModule } from './apis/user/user.module';
 import { AuthModule } from './apis/auth/auth.module';
-import { BoardModule } from './apis/boards/boards.module';
 import { BoardAddress } from './apis/address/entities/Board.address.entity';
 import { FileModule } from './apis/fileupload/file.module';
+import { BoardModule } from './apis/board/board.module';
 
 @Module({
   imports: [
