@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Board } from 'src/apis/boards/entities/board.entity';
 import { Event } from 'src/apis/event/entities/event.entity';
 import { Product } from 'src/apis/product/entities/product.entity';
 import {
@@ -33,10 +34,6 @@ export class User {
   @Field(() => String)
   phone: string;
 
-  @Column({ default: 0 })
-  @Field(() => Int)
-  point: number;
-
   @CreateDateColumn()
   @Field(() => String)
   createdAt: Date;
@@ -56,6 +53,10 @@ export class User {
   @Column({ nullable: true })
   @Field(() => String)
   manager: string;
+
+  @ManyToMany(() => Board, (scheduledBoards) => scheduledBoards.scheduledUsers)
+  @Field(() => [Board])
+  scheduledBoards: Board[];
 
   @JoinTable()
   @ManyToMany(() => Product, (dibsProducts) => dibsProducts.likedUsers)

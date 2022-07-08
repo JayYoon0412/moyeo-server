@@ -1,9 +1,13 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 import { BoardAddress } from 'src/apis/address/entities/Board.address.entity';
+import { Event } from 'src/apis/event/entities/event.entity';
+import { User } from 'src/apis/user/entities/user.entity';
 import {
   Column,
   Entity,
   JoinColumn,
+  ManyToMany,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -24,8 +28,8 @@ export class Board {
   contents: string;
 
   @Column()
-  @Field(() => Number)
-  count: number;
+  @Field(() => Int)
+  viewCount: number;
 
   @Column({ default: false })
   @Field(() => Boolean)
@@ -42,6 +46,18 @@ export class Board {
   @Column()
   @Field(() => String)
   transport: string;
+
+  @ManyToOne(() => User)
+  @Field(() => User)
+  writer: User;
+
+  @ManyToOne(() => Event)
+  @Field(() => Event)
+  parentEvent: Event;
+
+  @ManyToMany(() => User, (scheduledUsers) => scheduledUsers.scheduledBoards)
+  @Field(() => [User])
+  scheduledUsers: User[];
 
   @JoinColumn()
   @OneToOne(() => BoardAddress)
