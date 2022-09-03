@@ -12,6 +12,9 @@
 ## 프로젝트 스택
 ![기술스택](https://user-images.githubusercontent.com/59791809/184163492-d540619a-eae5-4359-9acc-c734bfc31562.png)
 
+## ERD
+<img width="1074" alt="모여모여ERD" src="https://user-images.githubusercontent.com/90667275/188251859-330a73d0-9510-435e-b926-1ad89cc40fa3.png">
+
 ## 플로우 차트
 ![team6_flowchart](https://user-images.githubusercontent.com/59791809/184164803-e383a15f-039d-42fb-a370-5137958b3b39.jpg)
 
